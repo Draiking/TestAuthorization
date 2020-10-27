@@ -1,0 +1,13 @@
+@import '../../styles.scss';
+
+.wrapper-header {
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: $background-header;
+  }  
+  
+.title {
+    margin: 0;
+    color: $text-white;
+}

@@ -1,0 +1,26 @@
+@import '../../styles.scss';
+
+.card {
+    margin: 50px auto;
+    max-width: 300px!important;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 20px;
+  }
+
+  .card-register {
+    padding-top: 10px;
+     a{
+      text-decoration: none;
+      font-size: 16px;
+     }
+    
+  }
+
+  .card-send{
+    padding-top: 10px;
+  }

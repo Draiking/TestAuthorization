@@ -1,0 +1,34 @@
+<form [formGroup]="myForm" (ngSubmit)="updateUser()" class="d-flex " method="post"
+    enctype="multipart/form-data">
+
+    <div class="p15 form-reg">
+
+
+      <mat-form-field class="example-full-width d-flex">
+        <input class="w-100" name="username" formControlName="username" type="text" matInput placeholder="Логин" [(ngModel)]="user.username" value="{{user.username}}">
+        <mat-error *ngIf="myForm.controls.username.hasError('required')">Введите свой логин</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width d-flex">
+        <input class="w-100" name="first_name" formControlName="first_name" type="text" maxlength="20" matInput
+          placeholder="Имя" [(ngModel)]="user.first_name" value="{{user.first_name}}">
+        <mat-error *ngIf="myForm.controls.first_name.hasError('required')">Введите свое имя</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width d-flex">
+        <input class="w-100" name="last_name" formControlName="last_name" type="text" matInput placeholder="Фамилия" [(ngModel)]="user.last_name" value="{{user.last_name}}">
+        <mat-error *ngIf="myForm.controls.last_name.hasError('required')">Введите свою фамилию</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width d-flex">
+        <input class="w-100" name="password" formControlName="password" type="password" matInput placeholder="Введите свой пароль" [(ngModel)]="user.password" >
+        <mat-error *ngIf="myForm.controls.password.hasError('required')">Введите пароль</mat-error>
+      </mat-form-field>
+
+    </div>
+  </form>
+
+  <div class="button">
+    <button [disabled]="myForm.invalid" mat-raised-button  color="primary" type="submit" (click)="updateUser()">Сохранить</button>
+  </div>

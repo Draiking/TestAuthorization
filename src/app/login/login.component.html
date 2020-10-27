@@ -1,0 +1,33 @@
+<app-header [titleHeader]='title'></app-header>
+
+<div class="layout">
+
+    <div class="main">
+        <div class="card">
+            <div class="card-header ">
+                <h4 class="modal-title">Вход на сайт</h4>
+            </div>
+            <div class="card-body">
+                <div class="login">
+                    <mat-form-field class="w-100">
+                        <input matInput placeholder="Введитите логин"  type="email" required  [(ngModel)]="user.username" #username="ngModel">
+                        <mat-error *ngIf="username.invalid || username.touched">Введите свой логин</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="password">
+                    <mat-form-field class="w-100">
+                        <input matInput placeholder="Введитите пароль" type="password"  required  [(ngModel)]="user.password" #password="ngModel">
+                        <mat-error *ngIf="password.invalid">Пароль не введен</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="card-send">
+                <button [disabled]="username.invalid || password.invalid"  mat-raised-button color="primary" (click)="send()">Войти в систему</button>
+            </div>
+            <div class="card-register">
+                <a [routerLink]="'/registration'">Регистрация</a>
+            </div>
+        </div>
+    </div>
+
+</div>

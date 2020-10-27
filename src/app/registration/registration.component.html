@@ -1,0 +1,52 @@
+<app-header [titleHeader]='title'></app-header>
+
+<div class="wrapper-register d-flex card">
+
+  <form [formGroup]="myForm" (ngSubmit)="createAccount()" class="d-flex " method="post"
+    enctype="multipart/form-data">
+
+    <div class="p15 form-reg">
+      <mat-form-field class="full-width d-flex">
+        <input class="w-100" name="username" formControlName="username" type="text" maxlength="20" matInput
+          placeholder="Логин">
+        <mat-error *ngIf="myForm.controls.username.hasError('required')">Введите свой логин</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width d-flex">
+        <input class="w-100" name="first_name" formControlName="first_name" type="text" matInput placeholder="Имя">
+        <mat-error *ngIf="myForm.controls.first_name.hasError('required')">Введите свое име</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width d-flex">
+        <input class="w-100" name="last_name" formControlName="last_name" type="text" matInput placeholder="Фамилия">
+        <mat-error *ngIf="myForm.controls.last_name.hasError('required')">Введите свою фамилию</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width d-flex">
+        <input class="w-100" id="newPassword" name="password" formControlName="password" type="password" minlength="2"
+          matInput placeholder="Введите пароль от 6 символов">
+        <mat-error *ngIf="myForm.controls.password.hasError('minLength')">Не менее 8 символов, и заглавную букву</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width d-flex">
+        <input class="w-100" id="currentPassword" type="password" pattern="{{myForm.controls.password.value}}"
+          formControlName="currentPassword" matInput placeholder="Повторите пароль">
+        <mat-error *ngIf="myForm.controls.password.value !== myForm.controls.currentPassword.value">Пароли не совпадают
+        </mat-error>
+      </mat-form-field>
+
+
+    </div>
+  </form>
+
+  <div class="button">
+    <button [disabled]="myForm.valid" mat-raised-button  color="primary" type="submit" (click)="createAccount()">Зарегистрироваться</button>
+  </div>
+
+  <div class="button-login">
+    <button [disabled]="myForm.valid" mat-raised-button  type="submit" [routerLink]="'/login'">Вернуться</button>
+  </div>
+
+</div>

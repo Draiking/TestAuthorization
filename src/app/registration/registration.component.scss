@@ -1,0 +1,16 @@
+@import '../../styles.scss';
+
+.card {
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 20px;
+  }
+
+  .fz14 {
+    font-size: 14px;
+  }
+
+  .button-login {
+    padding-top: 10px;
+  }
